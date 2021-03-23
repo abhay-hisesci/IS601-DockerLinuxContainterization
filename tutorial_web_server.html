@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Docker, Linux, and Containerization</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Docker, Linux, and Containerization</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li>
+                <a class="nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Docker, Linux, and Containerization
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="virtualization.html">Virtualization</a>
+                    <a class="dropdown-item" href="containerization.html">Containerization</a>
+                    <a class="dropdown-item" href="compare.html">Containerization vs. Virtualization</a>
+                    <a class="dropdown-item" href="tutorial_web_server.html">Set Up A Docker Web Server</a>
+                    <a class="dropdown-item" href="linux_commands.html">Basic Linux Command</a>
+                    <a class="dropdown-item" href="docker_pycharm.html">PyCharm and Docker</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h1>Set Up A Docker Web Server</h1>
+    <div class="d-flex justify-content-center">
+    </div>
+    <hr>
+    <div class="row justify-content-left">
+        <p>
+            Docker is a platform that provides OS level virtualization without large overhead that virtualization needs. It can be useful to deploy containerized software.
+            For this tutorial we will demonstrate the power of Docker by creating a quick and easy web server that can be used to develop new web applications.
+            To get a web server running in docker, there are some crucial steps to make sure we have completed first.<br>
+        <h3>Prerequisites</h3>
+        Please make sure to install docker for your local machine and also run the docker hello world test to make sure the installation was successful.<br><br>
+        <h3>Let's Start!</h3>
+            Step 1:<br>
+            In your command line enter the following command: docker pull ubuntu<br>
+            This command will pull the latest ubuntu container image from DockerHub. You should see ubuntu under repository
+            when executing the following command: <br>docker images<br><br>
+            <div class="justify-content-center"><img src="image/pic1.png" style="height: 400px; padding: 10px"></div>
+            Step 2: <br>
+            ​Next run the ubuntu image to start a Docker container. You can then log into this Ubuntu container using the following command:
+            <br>docker run -it ubuntu:latest /bin/bash<br><br>
+            Step 3: <br>
+            Make sure to update the system before doing anything further with the following command: ​
+            <br>apt-get update<br><br>
+            Step 4: <br>
+            Install apache using the following command: ​apt-get install apache2<br><br>
+            Step 5: <br>
+            Install vim using the following command:apt-get install vim <br><br>
+            Step 6: <br>
+            Now we can exit the ubuntu container using the command: exit <br><br>
+            Step 7: <br>
+            We can then commit the container to create a new Docker image but first we need to find the container id using the following command: docker ps -a​ <br><br>
+            Step 8: <br>
+            Next create a new Docker image using docker commit 'container_id' 'container_image_name'. 'container_id' should be replaced with the actual container ID and 'container_image_name' should be replaced with the name of a new Docker image.<br><br>
+            <div class="justify-content-center"><img src="image/pic4.png" style="height: 400px; padding: 10px"></div>
+            Step 9: <br>
+            Check to see if the new image was created using the following command: docker images <br><br>
+            Step 10: <br>
+            Using the following command to connect your local working directory with the docker image:
+            docker run -it -p 127.0.0.1:80:80 -v 'local_directory_path':/var/www/html 'container_image_name' /bin/bash<br>
+            'local_directory_path' should be replaced with the actual directory path of your working directory and 'container_image_name' should be replaced with the container image name <br><br>
+            <div class="justify-content-center"><img src="image/pic2.png" style="height: 400px; padding: 10px"></div>
+            Step 11: <br>
+            Now that we are in the container, we can create an index.html file for our web server. Use the following command to go to the root of the web server directory:
+            cd /var/www/html <br><br>
+            Step 12: <br>
+            Create an index.html file using the command: vi index.html​<br>
+            Press the i key to edit the file and add any html code within the file then enter the following keys to save and return to the command line: :wq <br><br>
+            Step 13: <br>
+            Now we can start the apache service using the following command: /etc/init.d/apache2 restart​
+            Step 14:
+            Finally go to your browser and go to the following web address to see your web page: http://127.0.0.1
+            <div class="justify-content-center"><img src="image/pic3.png" style="height: 400px; padding: 10px"></div>
+
+
+        </p>
+
+        <p>
+            &emsp;
+        </p>
+    </div>
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+            <div class="col-6 col-md">
+            </div>
+            <div class="col-6 col-md">
+            </div>
+            <div class="col-6 col-md">
+            </div>
+        </div>
+    </footer>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+</html>
