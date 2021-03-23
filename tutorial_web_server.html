@@ -58,7 +58,9 @@
             In your command line enter the following command: docker pull ubuntu<br>
             This command will pull the latest ubuntu container image from DockerHub. You should see ubuntu under repository
             when executing the following command: <br>docker images<br><br>
-            <div class="justify-content-center"><img src="image/pic1.png" style="height: 400px; padding: 10px"></div>
+            <div class="justify-content-center" style="max-width:100%;max-height:100%;">
+                <img src="image/pic1.png" style="width: 400px; object-fit: contain; padding: 10px">
+            </div>
             Step 2: <br>
             ​Next run the ubuntu image to start a Docker container. You can then log into this Ubuntu container using the following command:
             <br>docker run -it ubuntu:latest /bin/bash<br><br>
@@ -75,14 +77,18 @@
             We can then commit the container to create a new Docker image but first we need to find the container id using the following command: docker ps -a​ <br><br>
             Step 8: <br>
             Next create a new Docker image using docker commit 'container_id' 'container_image_name'. 'container_id' should be replaced with the actual container ID and 'container_image_name' should be replaced with the name of a new Docker image.<br><br>
-            <div class="justify-content-center"><img src="image/pic4.png" style="height: 400px; padding: 10px"></div>
+            <div class="justify-content-center" style="max-width:100%;max-height:100%;">
+                <img src="image/pic4.png" style="width: 400px; object-fit: contain; padding: 10px">
+            </div>
             Step 9: <br>
             Check to see if the new image was created using the following command: docker images <br><br>
             Step 10: <br>
             Using the following command to connect your local working directory with the docker image:
             docker run -it -p 127.0.0.1:80:80 -v 'local_directory_path':/var/www/html 'container_image_name' /bin/bash<br>
             'local_directory_path' should be replaced with the actual directory path of your working directory and 'container_image_name' should be replaced with the container image name <br><br>
-            <div class="justify-content-center"><img src="image/pic2.png" style="height: 400px; padding: 10px"></div>
+            <div class="justify-content-center" style="max-width:100%;max-height:100%;">
+                <img src="image/pic2.png" style="width: 700px; object-fit: contain; padding: 10px">
+            </div>
             Step 11: <br>
             Now that we are in the container, we can create an index.html file for our web server. Use the following command to go to the root of the web server directory:
             cd /var/www/html <br><br>
@@ -93,7 +99,9 @@
             Now we can start the apache service using the following command: /etc/init.d/apache2 restart​
             Step 14:
             Finally go to your browser and go to the following web address to see your web page: http://127.0.0.1
-            <div class="justify-content-center"><img src="image/pic3.png" style="height: 400px; padding: 10px"></div>
+            <div class="justify-content-center" style="max-width:100%;max-height:100%;">
+                <img src="image/pic3.png" style="height: 400px; object-fit: contain; padding: 10px">
+            </div>
 
 
         </p>
