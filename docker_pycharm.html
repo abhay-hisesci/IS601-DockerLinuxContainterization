@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Docker, Linux, and Containerization</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Docker, Linux, and Containerization</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li>
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Docker, Linux, and Containerization
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="virtualization.html">Virtualization</a>
+                    <a class="dropdown-item" href="containerization.html">Containerization</a>
+                    <a class="dropdown-item" href="compare.html">Containerization vs. Virtualization</a>
+                    <a class="dropdown-item" href="tutorial_web_server.html">Set Up A Docker Web Server</a>
+                    <a class="dropdown-item" href="linux_commands.html">Basic Linux Command</a>
+                    <a class="dropdown-item active" href="docker_pycharm.html">PyCharm and Docker</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container"><br>
+    <h1>Docker and PyCharm Tutorial</h1>
+    <hr>
+    <div class="row justify-content-left">
+        <p>This is a quick tutorial about how to connect Docker with Pycharm and start developing your own containerized python project!</p>
+            <div>
+                <h4>Prerequisites</h4>
+                <ul>
+                    <li><a href="https://docs.docker.com">Install Docker</a></li>
+                    <li>Make sure that the Docker plugin is enabled in PyCharm. The plugin is bundled with
+                        PyCharm and is activated by default but may be disabled in some rare cases. Enable it on the
+                        <a href="https://www.jetbrains.com/help/pycharm/plugins-settings.html">Plugins Page</a> in Settings/Preferences
+                    </li>
+                </ul>
+            </div>
+        <div>
+            <h4>Create A New Python Project</h4>
+            <p>Create a Python project named BarcodeTutorial. Then create a new file called my_script.py in as new directory called src. Enter the following
+                code:</p>
+            <img src="image/myscript.png"/>
+            <h4>Setup Docker</h4>
+            <p> Docker in Pycharm needs to be setup now. Go to the Settings/Preferences of Pycharm and go to Build, Execution, Deployment.
+                Click on Docker</p>
+            <img src="image/config.png"/>
+            <h4>Prepare the Dockerfile</h4>
+            <p>Create a new file in the main project directory and name it Dockerfile. Put the following codes into the Dockerfile:</p>
+            <img src="image/dockerfile.png"/>
+            <h4>Run Docker</h4>
+            <p>To run the container, at the top-right corner click on the Add Configuration ... button</p>
+            <img src="image/addConfig.png"/>
+            <p>Change the container name and the image name in this page</p>
+            <img src="image/runconfig.png"/>
+            <h4>Run Tab</h4>
+            <p>When the process is running, Pycharm will create the Run tab for run process.
+                The Build log and Attached Console will show relevant output from the container.
+                The Build logs the information for building the image and running the container.
+                The Attached Console shows you the results of running the python code.</p>
+            <img src="image/run.png">
+        </div>
+    </div>
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+            <div class="col-6 col-md">
+            </div>
+            <div class="col-6 col-md">
+            </div>
+            <div class="col-6 col-md">
+            </div>
+        </div>
+    </footer>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+</html>
